@@ -1,11 +1,16 @@
 cmake_minimum_required (VERSION 2.6)
 project (Tutorial)
+
+# does this system provide the log and exp functions
+include (CheckFunctionExists)
+check_function_exists (log HAVE_LOG)
+check_function_exists (exp HAVE_EXP)
+
 set (CMAKE_INSTALL_PREFIX /Users/irbull/cmake_test)
 
 # should we use our own math functions?
 option (USE_MYMATH
-        "Use tutorial provided math implementation" OFF)
-
+        "Use tutorial provided math implementation" ON)
 
 # The vesrion number.
 set (Tutorial_VERSION_MAJOR 1)
